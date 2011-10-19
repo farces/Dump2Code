@@ -73,7 +73,7 @@ namespace Dump2Code
                     _output.Add(String.Format("{0}{1} = new {2}() //FIXME: may be dummy field name", tabs, field_name, currentLine[0]));
                     continue;
                 }
-                if (currentLine.Length == 2)
+                if (currentLine.Length >= 2)
                 {
                     string[] value_split = currentLine[1].Trim().Split(' ');
                     string[] field_split = currentLine[0].Trim().Split('.');
@@ -83,6 +83,8 @@ namespace Dump2Code
                     if (currentLine[0].ToLower() == "actorid") value_split[0] = "this.DynamicID";
                     if (currentLine[0].ToLower() == "actorsno") value_split[0] = "this.ActorSNO";
                     if (currentLine[0].ToLower() == "worldid") value_split[0] = "this.World.DynamicID";
+
+                    //vector3d fields, known floats
                     if (currentLine[0].ToLower() == "x" || currentLine[0].ToLower() == "y" || currentLine[0].ToLower() == "z")
                         value_split[0] = String.Format("{0}f", value_split[0]);
 
