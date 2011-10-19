@@ -1,4 +1,5 @@
 Copy message contents (plaintext) from Farmy's GameMessage-Viewer into Box 1, press Bam, copy and paste the resulting code into C# and rename the few fields that weren't automatically set.
+Should also have no issue converting text from GSPacketDumper dumps, though field names may be outdated if the dumps aren't recent.
 
 It's pretty awful.
 
