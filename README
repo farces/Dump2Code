@@ -1,0 +1,38 @@
+Copy message contents (plaintext) from Farmy's GameMessage-Viewer into Box 1, press Bam, copy and paste the resulting code into C# and rename the few fields that weren't automatically set.
+
+It's pretty awful.
+
+Example input:
+
+GameMessage(0x0078)
+ACDTranslateNormalMessage:
+{
+ ActorId: 0x78AD0051  WitchDoctor_Male.acr
+ Vector3D:
+ {
+  X: 3131.998
+  Y: 2832.292
+  Z: 59.17559
+ }
+ Angle.Value: 2.642059
+ Field4.Value: 0.3598633
+ Field5.Value: 0x00220000 (2228224)
+ Field6.Value: 0x00011060:AnimationGroup:Run (69728)
+}
+
+Example Output:
+new ACDTranslateNormalMessage()
+{
+   ActorId = this.DynamicID,
+   Unknown_0 = new Vector3D() //FIXME: may be dummy field name
+   {
+      X = 3131.998f,
+      Y = 2832.292f,
+      Z = 59.17559f,
+   },
+   Angle = 2.642059,
+   Field4 = 0.3598633,
+   Field5 = 0x00220000,
+};
+
+

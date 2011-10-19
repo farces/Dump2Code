@@ -80,10 +80,10 @@ namespace Dump2Code
                     currentLine[0] = field_split[0];
 
                     //some basic replaces for easier pasting i guess
-                    if (currentLine[0] == "ActorID") value_split[0] = "this.DynamicID";
-                    if (currentLine[0] == "ActorSNO") value_split[0] = "this.ActorSNO";
-                    if (currentLine[0] == "WorldID") value_split[0] = "this.World.DynamicID";
-                    if (currentLine[0] == "X" || currentLine[0] == "Y" || currentLine[0] == "Z")
+                    if (currentLine[0].ToLower() == "actorid") value_split[0] = "this.DynamicID";
+                    if (currentLine[0].ToLower() == "actorsno") value_split[0] = "this.ActorSNO";
+                    if (currentLine[0].ToLower() == "worldid") value_split[0] = "this.World.DynamicID";
+                    if (currentLine[0].ToLower() == "x" || currentLine[0].ToLower() == "y" || currentLine[0].ToLower() == "z")
                         value_split[0] = String.Format("{0}f", value_split[0]);
 
                     _output.Add(String.Format("{0}{1} = {2},", tabs, currentLine[0], value_split[0]));
