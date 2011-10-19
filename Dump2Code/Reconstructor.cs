@@ -58,6 +58,7 @@ namespace Dump2Code
 
                 string[] currentLine = line.Split(':');
 
+                //line is of the format "FieldType:"
                 if (currentLine.Length == 2 && currentLine[1] == "")
                 {
                     if (current_line == 1)
@@ -73,19 +74,21 @@ namespace Dump2Code
                     _output.Add(String.Format("{0}{1} = new {2}() //FIXME: may be dummy field name", tabs, field_name, currentLine[0]));
                     continue;
                 }
+
+                //line is of the format "Field: Value" or "Field: Value:Description" or "Field: Value (value)" or "Field: Value Description"
                 if (currentLine.Length >= 2)
                 {
                     string[] value_split = currentLine[1].Trim().Split(' ');
                     string[] field_split = currentLine[0].Trim().Split('.');
-                    currentLine[0] = field_split[0];
+                    currentLine[0] = field_split[0]; //replace e.g. FieldX.Value with FieldX
 
-                    //some basic replaces for easier pasting i guess
+                    //some basic replaces for useful fields
                     if (currentLine[0].ToLower() == "actorid") value_split[0] = "this.DynamicID";
-                    if (currentLine[0].ToLower() == "actorsno") value_split[0] = "this.ActorSNO";
-                    if (currentLine[0].ToLower() == "worldid") value_split[0] = "this.World.DynamicID";
+                    else if (currentLine[0].ToLower() == "actorsno") value_split[0] = "this.ActorSNO";
+                    else if (currentLine[0].ToLower() == "worldid") value_split[0] = "this.World.DynamicID";
 
-                    //vector3d fields, known floats
-                    if (currentLine[0].ToLower() == "x" || currentLine[0].ToLower() == "y" || currentLine[0].ToLower() == "z")
+                    //vector3d fields, known floats, plus scale field
+                    if (currentLine[0].ToLower() == "x" || currentLine[0].ToLower() == "y" || currentLine[0].ToLower() == "z" || currentLine[0].ToLower() == "scale")
                         value_split[0] = String.Format("{0}f", value_split[0]);
 
                     _output.Add(String.Format("{0}{1} = {2},", tabs, currentLine[0], value_split[0]));
