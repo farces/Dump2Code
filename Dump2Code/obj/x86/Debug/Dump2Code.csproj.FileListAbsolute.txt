@@ -1,8 +1,0 @@
-c:\users\facest\documents\visual studio 2010\Projects\Dump2Code\Dump2Code\obj\x86\Debug\Dump2Code.csprojResolveAssemblyReference.cache
-c:\users\facest\documents\visual studio 2010\Projects\Dump2Code\Dump2Code\obj\x86\Debug\Dump2Code.Form1.resources
-c:\users\facest\documents\visual studio 2010\Projects\Dump2Code\Dump2Code\obj\x86\Debug\Dump2Code.Properties.Resources.resources
-c:\users\facest\documents\visual studio 2010\Projects\Dump2Code\Dump2Code\obj\x86\Debug\Dump2Code.csproj.GenerateResource.Cache
-c:\users\facest\documents\visual studio 2010\Projects\Dump2Code\Dump2Code\bin\Debug\Dump2Code.exe
-c:\users\facest\documents\visual studio 2010\Projects\Dump2Code\Dump2Code\bin\Debug\Dump2Code.pdb
-c:\users\facest\documents\visual studio 2010\Projects\Dump2Code\Dump2Code\obj\x86\Debug\Dump2Code.exe
-c:\users\facest\documents\visual studio 2010\Projects\Dump2Code\Dump2Code\obj\x86\Debug\Dump2Code.pdb
